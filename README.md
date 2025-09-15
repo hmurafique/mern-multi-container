@@ -65,17 +65,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 ```
 
-**backend/Dockerfile**
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install --legacy-peer-deps
-COPY . .
-EXPOSE 5000
-CMD ["npm", "start"]
-```
-
 ---
 
 ## 3️⃣ Frontend Code
@@ -137,7 +126,30 @@ function App() {
 }
 
 export default App;
+```
 
+---
+
+## 4️⃣ DevOps Deployment Steps
+
+**4.1 First Version (Without Domain)**
+- cd /home/ubuntu
+
+- git clone <YOUR_REPO_URL> mern-multi-container
+
+- cd mern-multi-container
+
+- Creating Dockerfiles:
+
+**backend/Dockerfile**
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
+COPY . .
+EXPOSE 5000
+CMD ["npm", "start"]
 ```
 
 **frontend/Dockerfile**
@@ -158,9 +170,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
----
-
-### 4️⃣ Docker Compose
+- Creating docker-compose.yml File:
 
 **docker-compose.yml**
 ```yml
@@ -197,17 +207,6 @@ volumes:
   mongo_data:
 ```
 
----
-
-### 5️⃣ DevOps Deployment Steps
-
-**5.1 First Version (Without Domain)**
-- cd /home/ubuntu
-
-- git clone <YOUR_REPO_URL> mern-multi-container
-
-- cd mern-multi-container
-
 - docker-compose up -d --build
 
 - docker ps
@@ -222,7 +221,7 @@ Check logs:
 
 - docker-compose logs -f frontend
 
-**5.2 Second Version (With Domain + SSL)**
+**4.2 Second Version (With Domain + SSL)**
 - Stop containers first: docker-compose down
 
 - Nginx config: sudo mkdir -p /etc/nginx/conf.d
