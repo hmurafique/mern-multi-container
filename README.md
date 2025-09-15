@@ -253,9 +253,10 @@ server {
 }
 ```
 
-- Install SSL via Certbot: sudo apt update
-			   sudo apt install certbot python3-certbot-nginx -y
-			   sudo certbot --nginx -d example.com -d www.example.com
+- Install SSL via Certbot: 
+	sudo apt update
+	sudo apt install certbot python3-certbot-nginx -y
+	sudo certbot --nginx -d example.com -d www.example.com
 
 - Start Docker containers: docker-compose up -d --build
 
