@@ -226,8 +226,9 @@ Check logs:
 
 - Nginx config: 
 **sudo mkdir -p /etc/nginx/conf.d**
+---
 **sudo nano /etc/nginx/conf.d/mern-app.conf**
-
+---
 - mern-app.conf: 
 ```nginx
 server {
@@ -256,9 +257,11 @@ server {
 
 - Install SSL via Certbot: 
 **sudo apt update**
+---
 **sudo apt install certbot python3-certbot-nginx -y**
+---
 **sudo certbot --nginx -d example.com -d www.example.com**
-
+---
 - Start Docker containers: docker-compose up -d --build
 
 Access:
