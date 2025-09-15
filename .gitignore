@@ -1,0 +1,55 @@
+# =========================
+# Node.js dependencies
+# =========================
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+*.log.*
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+secrets/
+*.pem
+*.key
+
+# =========================
+# Build / Output
+# =========================
+build/
+dist/
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+*.dockerfile.override
+*.env.override
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
